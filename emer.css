@@ -1,0 +1,87 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(180deg, #de9b00, #b98e00);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font: 70%;
+}
+
+/* Estilos para os botões */
+.emergbnt {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.btn {
+  flex: 1 1 calc(50% - 10px);
+  min-width: 140px;
+  background: white;
+  color: #de9b00;
+  padding: 15px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.emerg {
+  flex: 1 1 100%;
+  background-color: #de9b00;
+  color: white;
+  padding: 15px 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .btn {
+    flex: 1 1 100%;
+  }
+
+  .emerg {
+    font-size: 1rem;
+  }
+
+  .emergbnt {
+    gap: 10px;
+  }
+}

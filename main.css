@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #fff;
+}
+
+/* Cabeçalho */
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #de9b00;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 0.8rem 1rem;
+}
+
+.header h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #000;
+}
+
+.title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: white;
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid rgb(0, 153, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+}
+
+header i {
+  font-size: 1.5rem;
+  color: black;
+}
+
+.container-logo img {
+  width: 60px;
+  height: auto;
+}
+
+/* Mapa */
+.mapa-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Barra inferior */
+.nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #de9b00, #b98e00);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0.6rem 0;
+}
+
+.nav i {
+  font-size: 2rem;
+  color: white;
+}
+
+.nav-center {
+  transform: scale(1.2);
+}
+
+/* Painel lateral */
+.side-panel {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Escondido */
+  width: 260px;
+  height: 100%;
+  background: rgba(48, 48, 48, 0.95);
+  box-shadow: -2px 0 5px rgba(255, 255, 255, 0.2);
+  transition: right 0.3s ease-in-out;
+  padding: 20px;
+  color: white;
+}
+
+.side-panel.active {
+  right: 0; /* Mostra */
+}
+
+.config-list {
+  margin-top: 60px;
+  list-style: none;
+}
+
+.config-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.config-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.config-item.active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .profile-pic {
+    width: 45px;
+    height: 45px;
+  }
+
+  .container-logo img {
+    width: 50px;
+  }
+
+  .nav i {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h3 {
+    font-size: 1rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .profile-pic {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav i {
+    font-size: 1.5rem;
+  }
+}

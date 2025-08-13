@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #3c9cfd;
+}
+
+/* Fundo de chuva */
+#rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Logo + título */
+.logo-title {
+  text-align: center;
+  margin-bottom: 15px;
+}
+.logo-title img {
+  width: 150px;
+  height: auto;
+}
+.title {
+  color: #fff;
+  font-size: 48px;
+  font-weight: bold;
+}
+
+/* Caixa de login */
+.container {
+  width: 90%;
+  max-width: 400px;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0 20px 10px rgba(0, 0, 0, 0.349);
+}
+.container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #474747;
+}
+
+/* Inputs */
+.username,
+.password {
+  position: relative;
+  margin-bottom: 20px;
+}
+.username input,
+.password input {
+  width: 100%;
+  height: 45px;
+  border: 2px solid #6b6b6b;
+  border-radius: 60px;
+  padding: 0 40px;
+  font-size: 16px;
+}
+.username i,
+.password i {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #ba824a;
+}
+
+/* Botão */
+.btn button {
+  width: 100%;
+  height: 45px;
+  background: #ba824a;
+  border: none;
+  border-radius: 40px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+.btn button:hover {
+  background: #a46e3f;
+}
+
+/* Links */
+.Remember,
+.Register {
+  text-align: center;
+  margin-top: 15px;
+}
+.Remember a,
+.Register a {
+  color: #ba824a;
+  text-decoration: none;
+}
+.Register p {
+  color: #7e7e7e;
+}
+
+/* Responsivo para Android */
+@media (max-width: 500px) {
+  .logo-title img {
+    width: 120px;
+  }
+  .title {
+    font-size: 36px;
+  }
+  .container {
+    padding: 20px;
+  }
+  .username input,
+  .password input {
+    height: 40px;
+    font-size: 14px;
+  }
+  .btn button {
+    height: 40px;
+    font-size: 14px;
+  }
+}
