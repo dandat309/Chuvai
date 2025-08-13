@@ -16,7 +16,6 @@ body {
   background-color: #3c9cfd;
 }
 
-/* Fundo de chuva */
 #rain {
   position: fixed;
   top: 0;
@@ -26,19 +25,23 @@ body {
   z-index: -1;
 }
 
-/* Logo + título */
+
 .logo-title {
   text-align: center;
+  margin-top: 5px;
   margin-bottom: 15px;
 }
+
 .logo-title img {
   width: 150px;
   height: auto;
 }
+
 .title {
   color: #fff;
   font-size: 48px;
   font-weight: bold;
+  margin-top: -15px; 
 }
 
 /* Caixa de login */
@@ -91,9 +94,6 @@ body {
   font-size: 16px;
   cursor: pointer;
 }
-.btn button:hover {
-  background: #a46e3f;
-}
 
 /* Links */
 .Remember,
@@ -117,6 +117,7 @@ body {
   }
   .title {
     font-size: 36px;
+    margin-top: -10px; /* Ajuste adicional em telas pequenas */
   }
   .container {
     padding: 20px;
