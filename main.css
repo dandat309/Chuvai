@@ -8,9 +8,11 @@
 }
 
 body {
-  background: #fff;
+  background: #ffffff;
 }
-
+#config{
+  background: #fefbd8 ;
+}
 /* Cabeçalho */
 .header {
   position: relative;
@@ -86,7 +88,12 @@ header i {
   align-items: center;
   padding: 0.6rem 0;
 }
-
+.back-button {
+  color: var(--white);
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  text-decoration: none;
+}
 .nav i {
   font-size: 2rem;
   color: white;
@@ -96,40 +103,32 @@ header i {
   transform: scale(1.2);
 }
 
-/* Painel lateral */
-.side-panel {
-  position: fixed;
-  top: 0;
-  right: -300px; /* Escondido */
-  width: 260px;
-  height: 100%;
-  background: rgba(48, 48, 48, 0.95);
-  box-shadow: -2px 0 5px rgba(255, 255, 255, 0.2);
-  transition: right 0.3s ease-in-out;
-  padding: 20px;
-  color: white;
-}
 
-.side-panel.active {
-  right: 0; /* Mostra */
+.tittle{
+  color: #fff6e2;
 }
 
 .config-list {
   margin-top: 60px;
+  padding: 6vh;
   list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .config-item {
-  padding: 10px;
+  padding: 15px;
   cursor: pointer;
 }
 
 .config-item:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(236, 174, 4, 0.253);
 }
 
 .config-item.active {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(197, 146, 6, 0.253);
 }
 
 /* Responsividade */
