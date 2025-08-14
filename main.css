@@ -6,7 +6,17 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
+.backbut{
+  background:#de9b00;
+  margin-bottom: 52px;
+}
+.butlist{
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
+}
 body {
   background: #ffffff;
 }
@@ -81,8 +91,7 @@ header i {
   left: 0;
   width: 100%;
   background: linear-gradient(90deg, #de9b00, #b98e00);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+  
   display: flex;
   justify-content: space-around;
   align-items: center;
