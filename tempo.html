@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tempo Agora</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #de9b00;
+            --secondary-color: #de9b00;
+            --dark-yellow: #de9b00;
+            --light-yellow: #FFFACD;
+            --text-color: #333333;
+            --white: #FFFFFF;
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-yellow);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .back-button {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            text-decoration: none;
+        }
+
+        .app-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--white);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .weather-container {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .current-weather {
+            background-color: var(--white);
+            border-radius: 1rem;
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            background: linear-gradient(to bottom, var(--white), var(--light-yellow));
+            border: 1px solid var(--primary-color);
+        }
+
+        .temperature {
+            font-size: 5rem;
+            font-weight: bold;
+            color: var(--dark-yellow);
+            margin: 1rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .weather-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: var(--dark-yellow);
+        }
+
+        .weather-description {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .weather-details {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 1.5rem;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .detail-icon {
+            font-size: 1.5rem;
+            color: var(--dark-yellow);
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-label {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-value {
+            font-weight: bold;
+            color: var(--dark-yellow);
+        }
+
+        .forecast-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+            align-self: flex-start;
+            font-weight: 500;
+        }
+
+        .forecast-cards {
+            display: flex;
+            gap: 1rem;
+            width: 100%;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+        }
+
+        .forecast-card {
+            background-color: var(--white);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            min-width: 80px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            flex-shrink: 0;
+            border: 1px solid var(--primary-color);
+            background: linear-gradient(to bottom, var(--white), var(--light-yellow));
+        }
+
+        .forecast-time {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .forecast-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-yellow);
+        }
+
+        .forecast-temp {
+            font-weight: bold;
+            color: var(--dark-yellow);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-color);
+            background-color: var(--light-yellow);
+            border-top: 1px solid var(--primary-color);
+        }
+
+        @media (max-width: 480px) {
+            .temperature {
+                font-size: 4rem;
+            }
+
+            .weather-icon {
+                font-size: 3rem;
+            }
+
+            .current-weather {
+                padding: 1.5rem;
+            }
+
+            .forecast-cards {
+                gap: 0.75rem;
+            }
+
+            .forecast-card {
+                min-width: 70px;
+                padding: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="main.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <h1 class="app-title">Tempo Agora</h1>
+    </header>
+
+    <main class="weather-container">
+        <div class="current-weather">
+            <i class="fas fa-cloud weather-icon"></i>
+            <div class="temperature">
+                27<span style="font-size: 2rem; margin-top: 0.5rem;">°C</span>
+            </div>
+            <p class="weather-description">Céu nublado</p>
+
+            <div class="weather-details">
+                <div class="detail-item">
+                    <i class="fas fa-wind detail-icon"></i>
+                    <span class="detail-label">Vento</span>
+                    <span class="detail-value">12 km/h</span>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-tint detail-icon"></i>
+                    <span class="detail-label">Umidade</span>
+                    <span class="detail-value">64%</span>
+                </div>
+                <div class="detail-item">
+                    <i class="fas fa-thermometer-half detail-icon"></i>
+                    <span class="detail-label">Sensação</span>
+                    <span class="detail-value">25°C</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="forecast-title">Próximas horas:</h2>
+        <div class="forecast-cards">
+            <div class="forecast-card">
+                <div class="forecast-time">15:00</div>
+                <i class="fas fa-cloud-sun forecast-icon"></i>
+                <div class="forecast-temp">26°C</div>
+            </div>
+            <div class="forecast-card">
+                <div class="forecast-time">16:00</div>
+                <i class="fas fa-cloud forecast-icon"></i>
+                <div class="forecast-temp">25°C</div>
+            </div>
+            <div class="forecast-card">
+                <div class="forecast-time">17:00</div>
+                <i class="fas fa-cloud-rain forecast-icon"></i>
+                <div class="forecast-temp">23°C</div>
+            </div>
+            <div class="forecast-card">
+                <div class="forecast-time">18:00</div>
+                <i class="fas fa-cloud-rain forecast-icon"></i>
+                <div class="forecast-temp">21°C</div>
+            </div>
+            <div class="forecast-card">
+                <div class="forecast-time">19:00</div>
+                <i class="fas fa-cloud forecast-icon"></i>
+                <div class="forecast-temp">20°C</div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        Dados obtidos automaticamente usando sua localização
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        console.log("Localização obtida:", position.coords.latitude, position.coords.longitude);
+                    },
+                    function(error) {
+                        console.error("Erro ao obter localização:", error);
+                    }
+                );
+            } else {
+                console.log("Geolocalização não suportada pelo navegador");
+            }
+        });
+    </script>
+</body>
+</html>

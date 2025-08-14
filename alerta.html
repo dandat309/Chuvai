@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Avisos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --green: #4CAF50;
+            --yellow: #FFC107;
+            --red: #F44336;
+            --light-yellow: #FFFACD;
+            --text-color: #333333;
+            --white: #FFFFFF;
+            --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-family);
+        }
+
+        body {
+            background: linear-gradient(to bottom right, var(--light-yellow), #fefbd8);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .header {
+            background: var(--yellow);
+            padding: 1rem;
+            width: 100%;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .app-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--white);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* botao de voltar */
+        .back-button {
+            color: #FFFFFF;
+            background: linear-gradient(135deg, #de9b00, #de9b00);
+            font-size: 1.2rem;
+            padding: 8px 10px;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 40px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: linear-gradient(135deg, #f0ad00, #de9b00);
+        }
+
+        .alerts-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .update-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--green);
+        }
+
+        .alert-card {
+            background-color: var(--white);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            margin-bottom: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .alert-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .alert-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .alert-title {
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .alert-description {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .alert-location {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+            color: var(--text-color);
+        }
+
+        .alert-time {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .alert-button {
+            background: linear-gradient(135deg, #FFD700, #FFC107);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+            transition: all 0.3s ease;
+        }
+
+        .alert-button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, #FFC107, #FFB300);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+
+        /* Cores dos cartões */
+        .alert-safe {
+            border: 2px solid var(--green);
+        }
+
+        .alert-moderate {
+            border: 2px solid var(--yellow);
+        }
+
+        .alert-severe {
+            border: 2px solid var(--red);
+        }
+
+        @media (max-width: 480px) {
+            .alert-card {
+                padding: 1rem;
+                max-width: 90%;
+            }
+
+            .alert-title {
+                font-size: 1.2rem;
+            }
+
+            .alert-button {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="main.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+        <h1 class="app-title">Tela de Avisos 🔔</h1>
+    </header>
+
+    <main class="alerts-container">
+        <div class="update-text">Última atualização: 14h30</div>
+
+        <div class="alert-card alert-safe">
+            <i class="fas fa-check-circle alert-icon" style="color: var(--green);"></i>
+            <div class="alert-title">Informação Segura</div>
+            <div class="alert-description">Nenhum risco de enchente. A situação está estável.</div>
+            <div class="alert-location">Local: Centro</div>
+            <div class="alert-time">Hora: 14h30</div>
+            <button class="alert-button">Ver no mapa</button>
+        </div>
+
+        <div class="alert-card alert-moderate">
+            <i class="fas fa-arrow-up alert-icon" style="color: var(--yellow);"></i>
+            <div class="alert-title">Alerta Moderado</div>
+            <div class="alert-description">O nível do rio subiu 30cm. Fique atento a possíveis mudanças.</div>
+            <div class="alert-location">Local: Rio Verde</div>
+            <div class="alert-time">Hora: 14h30</div>
+            <button class="alert-button">Ver no mapa</button>
+        </div>
+
+        <div class="alert-card alert-severe">
+            <i class="fas fa-exclamation-triangle alert-icon" style="color: var(--red);"></i>
+            <div class="alert-title">Alerta Grave</div>
+            <div class="alert-description">Risco de transbordamento. Evacuação recomendada nas áreas afetadas.</div>
+            <div class="alert-location">Local: Bairro Alto</div>
+            <div class="alert-time">Hora: 14h30</div>
+            <button class="alert-button">Ver no mapa</button>
+        </div>
+    </main>
+
+    <footer class="footer">
+        Dados obtidos automaticamente usando sua localização
+    </footer>
+</body>
+</html>
