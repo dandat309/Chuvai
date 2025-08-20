@@ -1,7 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+:root {
+  --primary-color: #de9b00;
+  --secondary-color: #de9b00;
+  --dark-yellow: #de9b00;
+  --light-yellow: #FFFBEA;
+  --white: #FFFFFF;
+  --text: #333;
+  --shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(180deg, #de9b00, #b98e00);
-  color: white;
+  background: var(--light-yellow);
+  color: var(--text);
   padding: 20px;
   text-align: center;
   min-height: 100vh;
@@ -11,77 +23,87 @@ body {
   margin: 0;
 }
 
+/* Botão voltar */
+.back {
+  position: fixed;
+  top: 14px; left: 14px;
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--primary-color), #c48d00);
+  color: #fff; text-decoration: none;
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  transition: transform .2s ease;
+  z-index: 5;
+}
+.back:hover { transform: translateX(-3px); }
+
 h1 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
+  font-size: 2.2rem;
+  margin: 20px 0 28px;
   font-weight: 700;
+  color: var(--dark-yellow);
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-  font: 70%;
-}
-
-/* Estilos para os botões */
+/* Grid de botões */
 .emergbnt {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
-  max-width: 500px;
+  gap: 14px;
+  max-width: 560px;
   width: 100%;
 }
 
 .btn {
   flex: 1 1 calc(50% - 10px);
-  min-width: 140px;
-  background: white;
-  color: #de9b00;
-  padding: 15px;
-  border-radius: 12px;
+  min-width: 160px;
+  background: #fff;
+  color: var(--dark-yellow);
+  padding: 14px 16px;
+  border-radius: 14px;
   font-size: 1rem;
-  font-weight: 600;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+  transition: transform .2s ease, box-shadow .2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  border: 1px solid #f0ce6a;
+  text-decoration: none;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 16px rgba(0,0,0,0.15);
 }
 
+/* Botão principal */
 .emerg {
   flex: 1 1 100%;
-  background-color: #de9b00;
-  color: white;
-  padding: 15px 25px;
-  font-size: 1.1rem;
-  font-weight: bold;
+  background: linear-gradient(135deg, var(--primary-color), #c48d00);
+  color: #fff;
+  padding: 14px 22px;
+  font-size: 1.05rem;
+  font-weight: 800;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  transition: 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform .2s ease, box-shadow .2s ease;
+  box-shadow: var(--shadow);
+}
+.emerg:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 16px rgba(0,0,0,0.15);
 }
 
 @media (max-width: 500px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  .btn {
-    flex: 1 1 100%;
-  }
-
-  .emerg {
-    font-size: 1rem;
-  }
-
-  .emergbnt {
-    gap: 10px;
-  }
+  h1 { font-size: 1.8rem; }
+  .btn { flex: 1 1 100%; }
+  .emerg { font-size: 1rem; }
+  .emergbnt { gap: 12px; }
 }

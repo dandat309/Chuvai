@@ -7,71 +7,62 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --green: #4CAF50;
-            --yellow: #FFC107;
-            --red: #F44336;
-            --light-yellow: #FFFACD;
+            --primary-color: #de9b00;
+            --secondary-color: #de9b00;
+            --dark-yellow: #de9b00;
+            --light-yellow: #FFFBEA;
             --text-color: #333333;
             --white: #FFFFFF;
             --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --green: #4CAF50;
+            --red: #F44336;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: var(--font-family);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background: linear-gradient(to bottom right, var(--light-yellow), #fefbd8);
+            background-color: var(--light-yellow);
             color: var(--text-color);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 1rem;
         }
 
         .header {
-            background: var(--yellow);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             padding: 1rem;
             width: 100%;
+            display: flex;
+            align-items: center;
             box-shadow: var(--shadow);
-            text-align: center;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
             position: relative;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .back-button {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            text-decoration: none;
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
         }
 
         .app-title {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: bold;
             color: var(--white);
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        /* botao de voltar */
-        .back-button {
-            color: #FFFFFF;
-            background: linear-gradient(135deg, #de9b00, #de9b00);
-            font-size: 1.2rem;
-            padding: 8px 10px;
-            border-radius: 50%;
-            text-decoration: none;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: absolute;
-            top: 40px;
-            left: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s ease;
-        }
-
-        .back-button:hover {
-            background: linear-gradient(135deg, #f0ad00, #de9b00);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            margin: 0 auto;
         }
 
         .alerts-container {
@@ -80,14 +71,15 @@
             flex-direction: column;
             align-items: center;
             width: 100%;
+            padding: 1rem;
         }
 
         .update-text {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: bold;
             margin-bottom: 1rem;
             text-align: center;
-            color: var(--green);
+            color: var(--dark-yellow);
         }
 
         .alert-card {
@@ -100,13 +92,12 @@
             box-shadow: var(--shadow);
             margin-bottom: 1rem;
             transition: transform 0.2s, box-shadow 0.2s;
-            position: relative;
-            overflow: hidden;
+            border: 2px solid var(--primary-color);
         }
 
         .alert-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: scale(1.03);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
 
         .alert-icon {
@@ -121,27 +112,16 @@
             color: var(--text-color);
         }
 
-        .alert-description {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-color);
-        }
-
-        .alert-location {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            font-style: italic;
-            color: var(--text-color);
-        }
-
+        .alert-description,
+        .alert-location,
         .alert-time {
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
             color: var(--text-color);
         }
 
         .alert-button {
-            background: linear-gradient(135deg, #FFD700, #FFC107);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             border: none;
             border-radius: 50px;
@@ -155,36 +135,28 @@
 
         .alert-button:hover {
             transform: scale(1.05);
-            background: linear-gradient(135deg, #FFC107, #FFB300);
+            background: linear-gradient(135deg, #f0ad00, var(--secondary-color));
             box-shadow: 0 6px 12px rgba(0,0,0,0.3);
         }
 
-        /* Cores dos cartões */
-        .alert-safe {
-            border: 2px solid var(--green);
-        }
+        .alert-safe .alert-icon { color: var(--green); }
+        .alert-moderate .alert-icon { color: var(--dark-yellow); }
+        .alert-severe .alert-icon { color: var(--red); }
 
-        .alert-moderate {
-            border: 2px solid var(--yellow);
-        }
-
-        .alert-severe {
-            border: 2px solid var(--red);
+        .footer {
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.8rem;
+            color: var(--text-color);
+            background-color: var(--light-yellow);
+            border-top: 1px solid var(--primary-color);
+            width: 100%;
         }
 
         @media (max-width: 480px) {
-            .alert-card {
-                padding: 1rem;
-                max-width: 90%;
-            }
-
-            .alert-title {
-                font-size: 1.2rem;
-            }
-
-            .alert-button {
-                font-size: 0.9rem;
-            }
+            .alert-card { padding: 1rem; max-width: 90%; }
+            .alert-title { font-size: 1.2rem; }
+            .alert-button { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -200,7 +172,7 @@
         <div class="update-text">Última atualização: 14h30</div>
 
         <div class="alert-card alert-safe">
-            <i class="fas fa-check-circle alert-icon" style="color: var(--green);"></i>
+            <i class="fas fa-check-circle alert-icon"></i>
             <div class="alert-title">Informação Segura</div>
             <div class="alert-description">Nenhum risco de enchente. A situação está estável.</div>
             <div class="alert-location">Local: Centro</div>
@@ -209,7 +181,7 @@
         </div>
 
         <div class="alert-card alert-moderate">
-            <i class="fas fa-arrow-up alert-icon" style="color: var(--yellow);"></i>
+            <i class="fas fa-arrow-up alert-icon"></i>
             <div class="alert-title">Alerta Moderado</div>
             <div class="alert-description">O nível do rio subiu 30cm. Fique atento a possíveis mudanças.</div>
             <div class="alert-location">Local: Rio Verde</div>
@@ -218,7 +190,7 @@
         </div>
 
         <div class="alert-card alert-severe">
-            <i class="fas fa-exclamation-triangle alert-icon" style="color: var(--red);"></i>
+            <i class="fas fa-exclamation-triangle alert-icon"></i>
             <div class="alert-title">Alerta Grave</div>
             <div class="alert-description">Risco de transbordamento. Evacuação recomendada nas áreas afetadas.</div>
             <div class="alert-location">Local: Bairro Alto</div>
